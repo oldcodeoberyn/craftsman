@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Login</title>
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-	href="../../css/bootstrap.min.css" />
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css"/>
 </head>
 <body onload="document.f.username.focus();">
-		<div class="content">
-			<p th:if="${param.logout}" class="alert">You have been logged out</p>
-			<p th:if="${param.error}" class="alert alert-error">There was an error, please try again</p>
-			<h2>Login with Username and Password</h2>
-			<form name="form" th:action="@{/login}" action="/login" method="POST">
-				<fieldset>
-					<input type="text" name="username" value="" placeholder="Username" />
-					<input type="password" name="password" placeholder="Password" />
-				</fieldset>
-				<input type="submit" id="login" value="Login" class="btn btn-primary" />
-				<br/>
-				<a href="/register.html" th:href="@{/register}">Register</a>
-			</form>
-		</div>
+<div class="container">
+    <p th:if="${param.logout}" class="alert">You have been logged out</p>
+    <p th:if="${param.error}" class="alert alert-error">There was an error, please try again</p>
+    <h2>Login with Username and Password</h2>
+    <form name="form" th:action="@{/login}" action="/login" method="POST">
+        <fieldset>
+            <input type="text" name="username" value="" placeholder="Username"/>
+            <input type="password" name="password" placeholder="Password"/>
+        </fieldset>
+        <input class="btn btn-default" type="submit" id="login" value="Login"/>
+        <a class="btn btn-default" href="/register.html" th:href="@{/register}" role="button">Register</a>
+    </form>
+</div>
 </body>
 </html>

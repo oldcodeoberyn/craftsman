@@ -1,6 +1,5 @@
 package com.yoolean.craftsman;
 
-import com.yoolean.craftsman.entity.Account;
 import com.yoolean.craftsman.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +26,7 @@ public class SecurityConfig
     protected void configure( HttpSecurity http ) throws Exception
     {
         http
-            .authorizeRequests().antMatchers( "/css/**", "/index", "/register" ).permitAll().antMatchers( "/admin/**" )
+            .authorizeRequests().antMatchers( "/css/**","/js/**","/fonts/**", "/image/**","/index", "/register" ).permitAll().antMatchers( "/admin/**" )
             .hasRole( "ADMIN" ).anyRequest().fullyAuthenticated().and().formLogin().loginPage( "/login" )
             .failureUrl( "/login?error" ).permitAll().and().logout().permitAll();
     }
